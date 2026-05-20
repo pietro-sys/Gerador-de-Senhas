@@ -11,9 +11,10 @@ while True:
             caracteres = string.ascii_letters + string.digits
 
         tamanho_senha = int(input("Digite o tamanho da senha desejada: "))
-
-        senha = ''.join(random.choice(caracteres) for i in range(tamanho_senha))
-        print("Senha gerada:", senha)
+        quantidade_senhas = int(input("Digite a quantidade de senhas que deseja gerar: "))
+        for i in range(quantidade_senhas):
+            senha = ''.join(random.choice(caracteres) for _ in range(tamanho_senha))
+            print(f"Senha {i+1}:", senha)
         break
     except ValueError:
         print("Por favor, digite um número válido.")
