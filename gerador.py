@@ -1,30 +1,39 @@
 import random
 import string
 import pyperclip
+import os
 
 while True:
+    os.system('cls')
     print("Bem-vindo ao Gerador de Senhas!")
     print('1 - Gerar senha.')
     print('2 - Sair.')
     escolha = input("Digite o número da opção desejada: ")
+
     if escolha == '2':
         print("Saindo do programa. Até mais!")
         break
+
     elif escolha != '1':
         print("Opção inválida. Por favor, digite '1' para gerar senha ou '2' para sair.")
         continue
+
     else:
         pontuacao = input('Você gostaria de utilizar pontuação na sua senha? (s/n): ')
+        
         if pontuacao == 's':
             obrigatorio = random.choice(string.ascii_uppercase)  
             obrigatorio += random.choice(string.digits)           
-            obrigatorio += random.choice(string.punctuation)      
+            obrigatorio += random.choice(string.punctuation)  
+
         if pontuacao not in ['s', 'n']:
             print("Opção inválida. Por favor, digite 's' para sim ou 'n' para não.")
             continue
+
         try:
             if pontuacao == 's':
                 caracteres = string.ascii_letters + string.digits + string.punctuation
+
             else:
                 caracteres = string.ascii_letters + string.digits
 
@@ -33,6 +42,7 @@ while True:
 
             if tamanho_senha <= 0 or quantidade_senhas <= 0:
                 print("O tamanho da senha e a quantidade de senhas devem ser maiores que zero.")
+                continue
             else:
                 print("Senhas geradas com sucesso!")
 
@@ -67,6 +77,7 @@ while True:
             else:
                 forca = "🟢 Forte"
             print("Força da senha:", forca)
+            input('\nPressione Enter para continuar...')
             continue
         
         except ValueError:
