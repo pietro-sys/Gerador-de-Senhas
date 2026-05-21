@@ -12,9 +12,23 @@ while True:
 
         tamanho_senha = int(input("Digite o tamanho da senha desejada: "))
         quantidade_senhas = int(input("Digite a quantidade de senhas que deseja gerar: "))
+        if tamanho_senha <= 0 or quantidade_senhas <= 0:
+            print("O tamanho da senha e a quantidade de senhas devem ser maiores que zero.")
+        else:
+            print("Senhas geradas com sucesso!")
         for i in range(quantidade_senhas):
             senha = ''.join(random.choice(caracteres) for _ in range(tamanho_senha))
             print(f"Senha {i+1}:", senha)
+        
+        if tamanho_senha < 8:
+            forca = "🔴 Fraca"
+        elif tamanho_senha <= 12 and pontuacao == 'n':
+            forca = "🟡 Média"
+        elif tamanho_senha > 12 and pontuacao == 'n':
+            forca = "🟡 Média"
+        else:
+            forca = "🟢 Forte"
+        print("Força da senha:", forca)
         break
     except ValueError:
         print("Por favor, digite um número válido.")
