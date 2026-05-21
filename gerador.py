@@ -1,5 +1,6 @@
 import random
 import string
+import pyperclip
 
 while True:
     print("Bem-vindo ao Gerador de Senhas!")
@@ -38,6 +39,8 @@ while True:
             else:
                 senha = ''.join(random.choice(caracteres) for _ in range(tamanho_senha))
             print(f"Senha {i+1}:", senha)
+            pyperclip.copy(senha)
+            print("Senha copiada para o clipboard!")
         
         if tamanho_senha < 8:
             forca = "🔴 Fraca"
