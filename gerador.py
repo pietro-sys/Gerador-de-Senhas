@@ -4,6 +4,10 @@ import string
 while True:
     print("Bem-vindo ao Gerador de Senhas!")
     pontuacao = input('Você gostaria de utilizar pontuação na sua senha? (s/n): ')
+    if pontuacao == 's':
+        obrigatorio = random.choice(string.ascii_uppercase)  
+        obrigatorio += random.choice(string.digits)           
+        obrigatorio += random.choice(string.punctuation)      
     try:
         if pontuacao == 's':
             caracteres = string.ascii_letters + string.digits + string.punctuation
@@ -17,7 +21,13 @@ while True:
         else:
             print("Senhas geradas com sucesso!")
         for i in range(quantidade_senhas):
-            senha = ''.join(random.choice(caracteres) for _ in range(tamanho_senha))
+            if pontuacao == 's':
+                resto = ''.join(random.choice(caracteres) for _ in range(tamanho_senha - 3))
+                senha = list(obrigatorio + resto)
+                random.shuffle(senha)
+                senha = ''.join(senha)
+            else:
+                senha = ''.join(random.choice(caracteres) for _ in range(tamanho_senha))
             print(f"Senha {i+1}:", senha)
         
         if tamanho_senha < 8:
