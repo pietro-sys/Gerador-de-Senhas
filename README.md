@@ -94,8 +94,4 @@ Este projeto foi desenvolvido para praticar:
 - automação em Python
 - boas práticas em aplicações CLI
 
----
 
-## 📷 Demonstração
-
-<img src="assets/preview.gif" width="700">
