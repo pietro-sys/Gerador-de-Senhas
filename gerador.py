@@ -43,6 +43,9 @@ while True:
             if tamanho_senha <= 0 or quantidade_senhas <= 0:
                 print("O tamanho da senha e a quantidade de senhas devem ser maiores que zero.")
                 continue
+            elif tamanho_senha < 4 and pontuacao == 's':
+                print("Com pontuação o tamanho mínimo é 4.")
+                continue
             else:
                 print("Senhas geradas com sucesso!")
 
